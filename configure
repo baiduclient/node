@@ -361,6 +361,11 @@ parser.add_option('--enable-static',
     dest='enable_static',
     help='build as static library')
 
+parser.add_option('--enable-shared',
+    action='store_true',
+    dest='enable_shared',
+    help='build as shared library')
+
 (options, args) = parser.parse_args()
 
 # Expand ~ in the install prefix now, it gets written to multiple files.
@@ -771,6 +776,8 @@ def configure_library(lib, output):
     elif default_libs:
       output['libraries'] += default_libs
 
+  if options.enable_shared:
+    output['variables']['node_target_type'] = 'shared_library'
 
 def configure_v8(o):
   o['variables']['v8_enable_gdbjit'] = 1 if options.gdb else 0
