@@ -40,8 +40,6 @@
     startup.globalConsole();
     }  // not isRenderer
 
-    startup.initAsarSupport();
-
     startup.processAssert();
     startup.processConfig();
     startup.processNextTick();
@@ -997,10 +995,6 @@
   NativeModule.prototype.cache = function() {
     NativeModule._cache[this.id] = this;
   };
-
-  startup.initAsarSupport = function() {
-    process.binding('atom_common_asar').initAsarSupport(process, NativeModule.require);
-  }
 
   startup();
 });
