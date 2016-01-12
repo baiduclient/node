@@ -37,6 +37,7 @@ set i18n_arg=
 set download_arg=
 set release_urls_arg=
 set build_release=
+set enable_shared=
 
 :next-arg
 if "%1"=="" goto args-done
@@ -71,6 +72,7 @@ if /i "%1"=="full-icu"      set i18n_arg=%1&goto arg-ok
 if /i "%1"=="intl-none"     set i18n_arg=%1&goto arg-ok
 if /i "%1"=="download-all"  set download_arg="--download=all"&goto arg-ok
 if /i "%1"=="ignore-flaky"  set test_args=%test_args% --flaky-tests=dontcare&goto arg-ok
+if /i "%1"=="shared"        set enable_shared="--enable-shared"&goto arg-ok
 
 echo Warning: ignoring invalid command line option `%1`.
 
@@ -168,7 +170,7 @@ goto run
 if defined noprojgen goto msbuild
 
 @rem Generate the VS project.
-python configure %download_arg% %i18n_arg% %debug_arg% %snapshot_arg% %noetw_arg% %noperfctr_arg% --dest-cpu=%target_arch% --tag=%TAG%
+python configure %download_arg% %i18n_arg% %debug_arg% %snapshot_arg% %noetw_arg% %noperfctr_arg% --dest-cpu=%target_arch% --tag=%TAG% %enable_shared%
 if errorlevel 1 goto create-msvs-files-failed
 if not exist node.sln goto create-msvs-files-failed
 echo Project files generated.
