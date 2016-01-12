@@ -22,6 +22,7 @@
 #ifndef SRC_DEBUG_AGENT_H_
 #define SRC_DEBUG_AGENT_H_
 
+#include "node.h"
 #include "util.h"
 #include "util-inl.h"
 #include "uv.h"
@@ -72,11 +73,11 @@ class Agent {
   typedef void (*DispatchHandler)(node::Environment* env);
 
   // Start the debugger agent thread
-  bool Start(int port, bool wait);
+  NODE_EXTERN bool Start(int port, bool wait);
   // Listen for debug events
-  void Enable();
+  NODE_EXTERN void Enable();
   // Stop the debugger agent
-  void Stop();
+  NODE_EXTERN void Stop();
 
   inline void set_dispatch_handler(DispatchHandler handler) {
     dispatch_handler_ = handler;

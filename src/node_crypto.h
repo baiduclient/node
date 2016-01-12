@@ -738,7 +738,7 @@ class Certificate : public AsyncWrap {
   }
 };
 
-bool EntropySource(unsigned char* buffer, size_t length);
+bool NODE_EXTERN EntropySource(unsigned char* buffer, size_t length);
 #ifndef OPENSSL_NO_ENGINE
 void SetEngine(const v8::FunctionCallbackInfo<v8::Value>& args);
 #endif  // !OPENSSL_NO_ENGINE

@@ -21,7 +21,6 @@
 
 #include "debug-agent.h"
 
-#include "node.h"
 #include "node_internals.h"  // ARRAY_SIZE
 #include "env.h"
 #include "env-inl.h"

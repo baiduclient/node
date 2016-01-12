@@ -4176,5 +4176,12 @@ int Start(int argc, char** argv) {
   return exit_code;
 }
 
+v8::Platform* CreateDefaultPlatform(int thread_pool_size) {
+  return v8::platform::CreateDefaultPlatform(thread_pool_size);
+}
+
+bool PumpMessageLoop(v8::Platform* platform, v8::Isolate* isolate) {
+  return v8::platform::PumpMessageLoop(platform, isolate);
+}
 
 }  // namespace node

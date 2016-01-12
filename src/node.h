@@ -469,6 +469,10 @@ extern "C" NODE_EXTERN void node_module_register(void* mod);
  */
 NODE_EXTERN void AtExit(void (*cb)(void* arg), void* arg = 0);
 
+/* These 2 method are exported from node.dll */
+NODE_EXTERN v8::Platform* CreateDefaultPlatform(int thread_pool_size = 0);
+NODE_EXTERN bool PumpMessageLoop(v8::Platform* platform, v8::Isolate* isolate);
+
 }  // namespace node
 
 #endif  // SRC_NODE_H_

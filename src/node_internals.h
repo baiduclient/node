@@ -42,7 +42,7 @@ inline v8::Local<TypeName> PersistentToLocal(
     const v8::Persistent<TypeName>& persistent);
 
 // Call with valid HandleScope and while inside Context scope.
-v8::Local<v8::Value> MakeCallback(Environment* env,
+NODE_EXTERN v8::Local<v8::Value> MakeCallback(Environment* env,
                                    v8::Local<v8::Object> recv,
                                    const char* method,
                                    int argc = 0,
@@ -228,7 +228,7 @@ NODE_DEPRECATED("Use ThrowUVException(isolate)",
   return ThrowUVException(isolate, errorno, syscall, message, path);
 })
 
-class ArrayBufferAllocator : public v8::ArrayBuffer::Allocator {
+class NODE_EXTERN ArrayBufferAllocator : public v8::ArrayBuffer::Allocator {
  public:
   ArrayBufferAllocator() : env_(nullptr) { }
 
