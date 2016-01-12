@@ -184,6 +184,11 @@ NODE_EXTERN extern bool no_deprecation;
 NODE_EXTERN extern bool g_standalone_mode;
 NODE_EXTERN extern bool g_upstream_node_mode;
 
+// debug related variables
+NODE_EXTERN extern bool use_debug_agent;
+NODE_EXTERN extern bool debug_wait_connect;
+NODE_EXTERN extern int debug_port;
+
 NODE_EXTERN int Start(int argc, char *argv[]);
 NODE_EXTERN void Init(int* argc,
                       const char** argv,

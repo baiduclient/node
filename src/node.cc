@@ -141,9 +141,9 @@ static bool track_heap_objects = false;
 static const char* eval_string = nullptr;
 static unsigned int preload_module_count = 0;
 static const char** preload_modules = nullptr;
-static bool use_debug_agent = false;
-static bool debug_wait_connect = false;
-static int debug_port = 5858;
+bool use_debug_agent = false;
+bool debug_wait_connect = false;
+int debug_port = 5858;
 static bool v8_is_profiling = false;
 static bool node_is_initialized = false;
 static node_module* modpending;
@@ -3398,7 +3398,7 @@ static void DispatchMessagesDebugAgentCallback(Environment* env) {
 }
 
 
-static void StartDebug(Environment* env, bool wait) {
+void StartDebug(Environment* env, bool wait) {
   CHECK(!debugger_running);
 
   env->debugger_agent()->set_dispatch_handler(
@@ -3413,7 +3413,7 @@ static void StartDebug(Environment* env, bool wait) {
 
 
 // Called from the main thread.
-static void EnableDebug(Environment* env) {
+void EnableDebug(Environment* env) {
   CHECK(debugger_running);
 
   // Send message to enable debug in workers
