@@ -216,7 +216,7 @@
           '_CRT_NONSTDC_NO_DEPRECATE',
           # Make sure the STL doesn't try to use exceptions
           '_HAS_EXCEPTIONS=0',
-          'BUILDING_V8_SHARED=1',
+          #'BUILDING_V8_SHARED=1',
           'BUILDING_UV_SHARED=1',
         ],
       }],
