@@ -89,8 +89,8 @@
       'dependencies': [
         'node_js2c#host',
         'deps/cares/cares.gyp:cares',
-        'deps/v8/tools/gyp/v8.gyp:v8',
-        'deps/v8/tools/gyp/v8.gyp:v8_libplatform'
+        '../v8/tools/gyp/v8.gyp:v8',
+        '../v8/tools/gyp/v8.gyp:v8_libplatform'
       ],
 
       'include_dirs': [
@@ -98,7 +98,7 @@
         'tools/msvs/genfiles',
         'deps/uv/src/ares',
         '<(SHARED_INTERMEDIATE_DIR)', # for node_natives.h
-        'deps/v8' # include/v8_platform.h
+        '../v8' # include/v8_platform.h
       ],
 
       'sources': [
@@ -174,8 +174,8 @@
         'src/util.cc',
         'src/string_search.cc',
         'deps/http_parser/http_parser.h',
-        'deps/v8/include/v8.h',
-        'deps/v8/include/v8-debug.h',
+        '../v8/include/v8.h',
+        '../v8/include/v8-debug.h',
         '<(SHARED_INTERMEDIATE_DIR)/node_natives.h',
         # javascript files to make for an even more pleasant IDE experience
         '<@(library_files)',
@@ -340,7 +340,7 @@
           ]
         } ],
         [ 'v8_postmortem_support=="true"', {
-          'dependencies': [ 'deps/v8/tools/gyp/v8.gyp:postmortem-metadata' ],
+          'dependencies': [ '../v8/tools/gyp/v8.gyp:postmortem-metadata' ],
           'conditions': [
             # -force_load is not applicable for the static library
             [ 'node_target_type!="static_library"', {
@@ -655,12 +655,12 @@
       'type': 'executable',
       'dependencies': [
         'deps/gtest/gtest.gyp:gtest',
-        'deps/v8/tools/gyp/v8.gyp:v8',
-        'deps/v8/tools/gyp/v8.gyp:v8_libplatform'
+        '../v8/tools/gyp/v8.gyp:v8',
+        '../v8/tools/gyp/v8.gyp:v8_libplatform'
       ],
       'include_dirs': [
         'src',
-        'deps/v8/include'
+        '../v8/include'
       ],
       'defines': [
         # gtest's ASSERT macros conflict with our own.
@@ -687,7 +687,7 @@
 
           'include_dirs': [
             'src',
-            'deps/v8/include',
+            '../v8/include',
           ],
 
           'sources': [
