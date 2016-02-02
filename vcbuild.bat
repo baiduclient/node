@@ -171,6 +171,9 @@ if defined noprojgen goto msbuild
 
 @rem Generate the VS project.
 python configure %download_arg% %i18n_arg% %debug_arg% %snapshot_arg% %noetw_arg% %noperfctr_arg% --dest-cpu=%target_arch% --tag=%TAG% %enable_shared%
+
+goto exit
+
 if errorlevel 1 goto create-msvs-files-failed
 if not exist node.sln goto create-msvs-files-failed
 echo Project files generated.
