@@ -21,7 +21,7 @@
     'v8_enable_disassembler': 1,
 
     # Don't bake anything extra into the snapshot.
-    'v8_use_external_startup_data%': 0,
+    'v8_use_external_startup_data%': 1,
 
     'conditions': [
       ['OS == "win"', {
