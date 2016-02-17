@@ -426,6 +426,11 @@
         [ 'OS=="sunos"', {
           'ldflags': [ '-Wl,-M,/usr/lib/ld/map.noexstk' ],
         }],
+        [ 'v8_use_snapshot=="true"', {
+          'dependencies': [
+            '../v8/tools/gyp/v8.gyp:v8_external_snapshot'
+          ]
+        }],
       ],
       'msvs_settings': {
         'VCManifestTool': {
