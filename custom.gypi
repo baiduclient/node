@@ -9,7 +9,7 @@
     'target_defaults': {
         'conditions': [
             ['OS=="win"', {
-                'msvs_disabled_warnings': [4275, 4819, 4133, 4146, 4003]
+                'msvs_disabled_warnings': [4275, 4819, 4133, 4146, 4003, 4005, 4267, 4090, 4334]
             }],
             ['OS=="mac"', {
                 'xcode_settings': {
